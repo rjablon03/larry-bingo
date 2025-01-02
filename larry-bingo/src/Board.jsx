@@ -20,6 +20,11 @@ function Board() {
         return array;
     }
 
+    const handleClick = (event) => {
+        const div = event.target;
+        div.style.backgroundColor = "#1e6ed7";
+    };
+
     const phrases = [
         "We'll just push it back",
         'A class is a blueprint',
@@ -57,10 +62,10 @@ function Board() {
             <div className="board">
             {shuffled.map((value, index) => {
                 if (index === 12) {
-                    return (<div key={index} className="tile">FREE</div>)
+                    return (<div key={index} className="tile" onClick={handleClick}>FREE</div>)
                 }
                 else {
-                    return (<div key={index} className="tile">{value}</div>)
+                    return (<div key={index} className="tile" onClick={handleClick}>{value}</div>)
                 }}
             )}
             </div>
